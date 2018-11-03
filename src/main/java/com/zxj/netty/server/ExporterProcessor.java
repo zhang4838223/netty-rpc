@@ -5,12 +5,12 @@ import com.zxj.netty.model.InvokerMethod;
 import org.springframework.beans.BeansException;
 import org.springframework.beans.factory.config.BeanPostProcessor;
 import org.springframework.stereotype.Component;
-import org.springframework.stereotype.Controller;
 
 import java.lang.reflect.Method;
 
 /**
  * spring容器初始化后，封装暴露出去的服务方法、对象实例到InvokerContext中
+ * 解析被RpcReference注解的实例，生成对应代理
  */
 @Component
 public class ExporterProcessor implements BeanPostProcessor {
@@ -35,6 +35,8 @@ public class ExporterProcessor implements BeanPostProcessor {
 //                }
             }
         }
+
+
         return o;
     }
 }

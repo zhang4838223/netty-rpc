@@ -10,6 +10,7 @@ import java.lang.annotation.*;
 @Target({ElementType.TYPE, ElementType.METHOD})
 @Retention(RetentionPolicy.RUNTIME)
 @Documented
+// 该注解标识的类可以被spring加载
 @Component
 public @interface RpcExpoter {
 

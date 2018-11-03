@@ -17,21 +17,12 @@ import io.netty.handler.codec.string.StringEncoder;
 import io.netty.handler.timeout.IdleStateHandler;
 import org.apache.curator.framework.CuratorFramework;
 import org.apache.zookeeper.CreateMode;
-import org.springframework.context.ApplicationListener;
-import org.springframework.context.event.ContextRefreshedEvent;
-import org.springframework.stereotype.Component;
-
 import java.net.InetAddress;
 import java.util.concurrent.TimeUnit;
 
-/**
- * Spring容器初始化完成时，启动netty服务
- *
- */
-@Component
-public class AppInitializer implements ApplicationListener<ContextRefreshedEvent> {
+public class AppInitializer{
 
-    public void start() {
+    public static void start() {
         ServerBootstrap serverBootstrap = new ServerBootstrap();
         EventLoopGroup parentGroup = new NioEventLoopGroup();
         EventLoopGroup childGroup = new NioEventLoopGroup();
@@ -63,10 +54,5 @@ public class AppInitializer implements ApplicationListener<ContextRefreshedEvent
             childGroup.shutdownGracefully();
             e.printStackTrace();
         }
-    }
-
-    @Override
-    public void onApplicationEvent(ContextRefreshedEvent contextRefreshedEvent) {
-        start();
     }
 }
