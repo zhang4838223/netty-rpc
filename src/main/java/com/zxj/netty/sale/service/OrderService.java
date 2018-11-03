@@ -1,17 +1,14 @@
 package com.zxj.netty.sale.service;
 
 import com.zxj.netty.sale.model.Order;
-import org.springframework.stereotype.Service;
+import com.zxj.netty.sale.model.OrderListResponse;
+import com.zxj.netty.sale.model.OrderResponse;
 
 import java.util.List;
 
-@Service
-public class OrderService {
-    public void save(Order order) {
-        //todo  do business
-    }
+public interface OrderService {
 
-    public void saveOrders(List<Order> orders) {
+    public OrderResponse saveOrder(Order order);
 
-    }
+    public OrderListResponse saveOrders(List<Order> orders);
 }

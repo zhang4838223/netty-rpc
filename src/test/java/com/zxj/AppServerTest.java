@@ -1,10 +1,8 @@
 package com.zxj;
 
-import static org.junit.Assert.assertTrue;
 
 import com.alibaba.fastjson.JSONObject;
 import com.google.common.collect.Lists;
-import com.zxj.netty.client.NettyClient;
 import com.zxj.netty.client.RpcClient;
 import com.zxj.netty.model.NettyRequest;
 import com.zxj.netty.model.NettyResponse;
